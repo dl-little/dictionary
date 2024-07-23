@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import faker from './routes/faker.js';
+import 'dotenv/config';
 
 const PORT = process.env.PORT || 5050;
 const app = express();
