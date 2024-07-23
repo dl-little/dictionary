@@ -1,0 +1,35 @@
+{
+  "inputs": [
+    {
+      "id": "fm-uri",
+      "label": "Your Atlas URI",
+      "type": "text"
+    },
+    {
+      "id": "fm-db",
+      "label": "Database Name",
+      "type": "text"
+    },
+    {
+      "id": "fm-collection",
+      "label": "Collection Name",
+      "type": "text"
+    },
+    {
+      "id": "fm-doc-amount",
+      "label": "How many documents?",
+      "type": "number"
+    },
+    {
+      "id": "fm-type",
+      "label": "Type",
+      "type": "select",
+      "options": [
+        {
+          "value": "employee",
+          "display": "Employee"
+        }
+      ]
+    }
+  ]
+}
