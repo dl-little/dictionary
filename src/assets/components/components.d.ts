@@ -8,6 +8,7 @@ type InputGroup = {
   type: string;
   id: string;
   options?: SelectOption[];
+  default?: string;
 };
 
 interface IFormGroup {

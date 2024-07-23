@@ -3,7 +3,8 @@
     {
       "id": "fm-uri",
       "label": "Your Atlas URI",
-      "type": "text"
+      "type": "text",
+      "default": "ATLAS_URI"
     },
     {
       "id": "fm-db",
@@ -17,7 +18,7 @@
     },
     {
       "id": "fm-doc-amount",
-      "label": "How many documents?",
+      "label": "How many documents? (numeric value only)",
       "type": "number"
     },
     {

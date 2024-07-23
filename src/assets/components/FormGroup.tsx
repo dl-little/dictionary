@@ -5,11 +5,17 @@ const FormGroup: React.FC<IFormGroup> = (props) => {
 
   const renderInput = (input: InputGroup) => {
     let inputEl: ReactElement<HTMLInputElement | HTMLSelectElement>;
+    const defaultViteVar = 'VITE_' + input.default;
     const sharedProps = {
       className: 'border-gray-400 border',
       onChange: handleInput,
       required: true,
+      ...(!!input.default &&
+        !!import.meta.env[defaultViteVar] && {
+          defaultValue: import.meta.env[defaultViteVar],
+        }),
     };
+
     switch (input.type) {
       case 'number':
         inputEl = (
@@ -41,6 +47,7 @@ const FormGroup: React.FC<IFormGroup> = (props) => {
       default:
         inputEl = <input type={input.type} id={input.id} {...sharedProps} />;
     }
+
     return inputEl;
   };
 
