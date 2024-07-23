@@ -30,7 +30,7 @@ const FormGroup: React.FC<IFormGroup> = (props) => {
       case 'select':
         inputEl = (
           <select id={input.id} {...sharedProps}>
-            <option hidden key="blank" value="-1">
+            <option hidden key="blank" value="">
               Choose which type of faker object to create
             </option>
             {input.options?.map((option) => {

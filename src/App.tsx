@@ -32,6 +32,12 @@ function App() {
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
+
+    if (Object.keys(formValues).length !== 5) {
+      alert('Missing required fields!');
+      return;
+    }
+
     const response = await fetch('http://localhost:5050/faker', {
       method: 'POST',
       body: JSON.stringify(formValues),
@@ -39,6 +45,16 @@ function App() {
         'Content-Type': 'application/json',
       },
     });
+
+    let message;
+
+    if (!response.ok) {
+      message = `An error occurred: ${response.statusText}`;
+    } else {
+      message = await response.text();
+    }
+
+    alert(message);
   };
 
   return (
