@@ -3,6 +3,7 @@ import FormGroup from './assets/components/FormGroup';
 import data from './assets/inputs.json';
 import getViteVar from './assets/helpers/getViteVar';
 const inputs = data.inputs as InputGroup[];
+const port = import.meta.env.VITE_EXPRESS_PORT || 5050;
 
 function App() {
   const [formValues, setFormValues] = useState({});
@@ -38,7 +39,7 @@ function App() {
       return;
     }
 
-    const response = await fetch('http://localhost:5050/faker', {
+    const response = await fetch(`http://localhost:${port}/faker`, {
       method: 'POST',
       body: JSON.stringify(formValues),
       headers: {
