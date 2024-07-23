@@ -12,5 +12,5 @@ type InputGroup = {
 
 interface IFormGroup {
   input: InputGroup;
-  onChange?: () => void;
+  handleInput?: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
 }
