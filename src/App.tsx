@@ -1,10 +1,25 @@
-import { ChangeEvent, FormEventHandler, useState } from 'react';
+import { ChangeEvent, FormEventHandler, useState, useEffect } from 'react';
 import FormGroup from './assets/components/FormGroup';
 import data from './assets/inputs.json';
+import getViteVar from './assets/helpers/getViteVar';
 const inputs = data.inputs as InputGroup[];
 
 function App() {
   const [formValues, setFormValues] = useState({});
+
+  // This hook fires on initial render to add the default values of the input groups.
+  useEffect(() => {
+    inputs
+      .filter((input) => {
+        return Object.prototype.hasOwnProperty.call(input, 'default');
+      })
+      .forEach((obj) => {
+        setFormValues((prevFormValues) => ({
+          ...prevFormValues,
+          [obj.id]: getViteVar(obj.default),
+        }));
+      });
+  }, []);
 
   const handleInput = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>

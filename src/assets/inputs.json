@@ -4,7 +4,7 @@
       "id": "fm-uri",
       "label": "Your Atlas URI",
       "type": "text",
-      "default": "ATLAS_URI"
+      "default": "VITE_ATLAS_URI"
     },
     {
       "id": "fm-db",

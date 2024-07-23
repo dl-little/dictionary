@@ -1,19 +1,18 @@
 import { ReactElement } from 'react';
+import getViteVar from '../helpers/getViteVar';
 
 const FormGroup: React.FC<IFormGroup> = (props) => {
   const { input, handleInput } = props;
 
   const renderInput = (input: InputGroup) => {
     let inputEl: ReactElement<HTMLInputElement | HTMLSelectElement>;
-    const defaultViteVar = 'VITE_' + input.default;
     const sharedProps = {
       className: 'border-gray-400 border',
       onChange: handleInput,
       required: true,
-      ...(!!input.default &&
-        !!import.meta.env[defaultViteVar] && {
-          defaultValue: import.meta.env[defaultViteVar],
-        }),
+      ...(!!input.default && {
+        defaultValue: getViteVar(input.default),
+      }),
     };
 
     switch (input.type) {
