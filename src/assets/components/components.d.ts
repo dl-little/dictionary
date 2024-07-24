@@ -1,6 +1,7 @@
 type SelectOption = {
   value: string;
   display: string;
+  example?: object;
 };
 
 type InputGroup = {
@@ -14,4 +15,5 @@ type InputGroup = {
 interface IFormGroup {
   input: InputGroup;
   handleInput?: (e: ChangeEvent<HTMLInputElement | HTMLSelectElement>) => void;
+  example?: object;
 }

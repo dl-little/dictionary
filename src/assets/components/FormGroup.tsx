@@ -2,10 +2,12 @@ import { ReactElement } from 'react';
 import getViteVar from '../helpers/getViteVar';
 
 const FormGroup: React.FC<IFormGroup> = (props) => {
-  const { input, handleInput } = props;
+  const { input, handleInput, example } = props;
 
   const renderInput = (input: InputGroup) => {
-    let inputEl: ReactElement<HTMLInputElement | HTMLSelectElement>;
+    let inputEl: ReactElement<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >;
     const sharedProps = {
       className: 'border-gray-400 border',
       onChange: handleInput,
@@ -35,12 +37,29 @@ const FormGroup: React.FC<IFormGroup> = (props) => {
             </option>
             {input.options?.map((option) => {
               return (
-                <option key={option.value} value={option.value}>
+                <option
+                  key={option.value}
+                  value={option.value}
+                  data-example={JSON.stringify(option.example)}
+                >
                   {option.display}
                 </option>
               );
             })}
           </select>
+        );
+        break;
+      case 'textarea':
+        inputEl = (
+          <pre className="whitespace-pre-wrap text-sm">
+            {JSON.stringify(example, null, 2).replace(
+              /"(\w+)":\s*"([^"]+)"\s*,?|^\{|\}$/g,
+              (match, key, value) => {
+                if (key && value) return `${key}: ${value}`; // For key-value replacements
+                return ''; // For removing curly brackets
+              }
+            )}
+          </pre>
         );
         break;
       default:

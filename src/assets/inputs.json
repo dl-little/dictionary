@@ -28,7 +28,67 @@
       "options": [
         {
           "value": "employee",
-          "display": "Employee"
+          "display": "Employee",
+          "example": {
+            "_id": "ObjectId('66a14d776162460f1bb057a5')",
+            "name": "Roman Daugherty",
+            "position": "Corporate Configuration Representative",
+            "descriptor": "Legacy",
+            "area": "Brand",
+            "level": "Senior"
+          }
+        },
+        {
+          "value": "product",
+          "display": "Product",
+          "example": {
+            "_id": "ObjectId('66a14d776162460f1bb057a5')",
+            "department": "Industrial",
+            "isbn": "978-1-4698-6728-1",
+            "price": "$184.00",
+            "product": "Fantastic Wooden Fish",
+            "description": "Ergonomic executive chair upholstered in bonded black leather and PVC padded seat and back for all-day comfort and support",
+            "material": "Frozen"
+          }
+        },
+        {
+          "value": "user",
+          "display": "User",
+          "example": {
+            "_id": "ObjectId('66a14d776162460f1bb057a5')",
+            "name": "Shelly Feest",
+            "email": "ShellyFeest92@hotmail.com",
+            "phoneNumber": "1-311-467-6420 x227",
+            "city": "Alafaya",
+            "state": "NE",
+            "country": "United States",
+            "address": "38206 Celestine View",
+            "secondaryAddress": "Apt. 611",
+            "fullAddress": "38206 Celestine View, Apt. 611, Alafaya, NE 65389-3252"
+          }
+        },
+        {
+          "value": "bank_account",
+          "display": "Bank Account",
+          "example": {
+            "_id": "ObjectId('66a14d776162460f1bb057a5')",
+            "accountName": "Personal Loan Account",
+            "accountNumber": "48969618",
+            "accountBalance": "$1,790.78",
+            "accountPin": "3023",
+            "routingNumber": "431201106"
+          }
+        },
+        {
+          "value": "credit_card",
+          "display": "Credit Card",
+          "example": {
+            "_id": "ObjectId('66a14d776162460f1bb057a5')",
+            "creditCardNumber": "3529-7824-8181-4456",
+            "creditCardCVV": "680",
+            "creditCardIssuer": "maestro",
+            "zip": "02159"
+          }
         }
       ]
     }
