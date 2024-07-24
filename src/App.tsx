@@ -7,7 +7,7 @@ const port = import.meta.env.VITE_EXPRESS_PORT || 5050;
 
 function App() {
   const [formValues, setFormValues] = useState({});
-  const [example, setExample] = useState({});
+  const [example, setExample] = useState('');
 
   // This hook fires on initial render to add the default values of the input groups.
   useEffect(() => {
@@ -29,7 +29,7 @@ function App() {
     if (e.target.id === 'fm_type') {
       const select = e.target as HTMLSelectElement;
       const option = select.options[select.selectedIndex];
-      setExample(JSON.parse(option.getAttribute('data-example') || ''));
+      setExample(option.getAttribute('data-example') || '');
     }
 
     setFormValues((prevFormValues) => ({
