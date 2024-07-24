@@ -1,6 +1,14 @@
 # Create Fake Data in MongoDB cluster for local development
 
-This MERN stack app allows you to easily create fake data in your MongoDB cluster using [FakerJS](https://fakerjs.dev/api/). Right now the app only produces employee types, but I plan to expand for other uses of the Faker API.
+This MERN stack app allows you to easily create fake data in your MongoDB cluster using [FakerJS](https://fakerjs.dev/api/).
+
+The app can make the following document types:
+
+- Product
+- User
+- Employee
+- Credit Card
+- Bank Account
 
 ## How To
 
@@ -22,7 +30,7 @@ npm install && npm run start
 
 The console should show `Server listening on port 5050`.
 
-Open up the localhost address for the front end app, fill out the fields, and submit. Then check in your MongoDB cluster and see that you now have faked data.
+Open up the localhost address for the front end app and fill out the fields. As you select the type, you'll see an example of the type of document you will create. Then submit and check in your MongoDB cluster and see that you now have faked data.
 
 # React + TypeScript + Vite
 
