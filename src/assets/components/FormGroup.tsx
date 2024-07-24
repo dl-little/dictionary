@@ -36,11 +36,22 @@ const FormGroup: React.FC<IFormGroup> = (props) => {
               Choose which type of faker object to create
             </option>
             {input.options?.map((option) => {
+              const formattedExample = JSON.stringify(
+                option.example,
+                null,
+                2
+              ).replace(
+                /"(\w+)":\s*"([^"]+)"\s*,?|^\{|\}$/g,
+                (match, key, value) => {
+                  if (key && value) return `${key}: ${value}`; // For key-value replacements
+                  return ''; // For removing curly brackets
+                }
+              );
               return (
                 <option
                   key={option.value}
                   value={option.value}
-                  data-example={JSON.stringify(option.example)}
+                  data-example={formattedExample}
                 >
                   {option.display}
                 </option>
@@ -51,15 +62,18 @@ const FormGroup: React.FC<IFormGroup> = (props) => {
         break;
       case 'textarea':
         inputEl = (
-          <pre className="whitespace-pre-wrap text-sm">
-            {JSON.stringify(example, null, 2).replace(
-              /"(\w+)":\s*"([^"]+)"\s*,?|^\{|\}$/g,
-              (match, key, value) => {
-                if (key && value) return `${key}: ${value}`; // For key-value replacements
-                return ''; // For removing curly brackets
-              }
-            )}
-          </pre>
+          <>
+            <p className="font-bold" id="example-label">
+              Example document:
+            </p>
+            <pre
+              id="example"
+              aria-describedby="example-label"
+              className="whitespace-pre-wrap text-sm"
+            >
+              {example}
+            </pre>
+          </>
         );
         break;
       default:
@@ -71,9 +85,11 @@ const FormGroup: React.FC<IFormGroup> = (props) => {
 
   return (
     <div className="w-full flex flex-col">
-      <label className="font-bold" htmlFor={input.id}>
-        {input.label}
-      </label>
+      {input.id !== 'example' && (
+        <label className="font-bold" htmlFor={input.id}>
+          {input.label}
+        </label>
+      )}
       {renderInput(input)}
     </div>
   );
