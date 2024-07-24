@@ -1,6 +1,7 @@
 # Create Fake Data in MongoDB cluster for local development
 
-This MERN stack app allows you to easily create fake data in your MongoDB cluster using [FakerJS](https://fakerjs.dev/api/).
+This MERN stack app allows you to easily create fake data in your MongoDB cluster using [FakerJS](https://fakerjs.dev/api/):
+<img src="./example.png" alt="screenshot showing the UI of the app." width="300px" />
 
 The app can make the following document types:
 
