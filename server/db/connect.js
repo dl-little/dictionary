@@ -1,15 +1,15 @@
 import { MongoClient, ServerApiVersion } from 'mongodb';
 
 const connect = async (uri) => {
-  const client = new MongoClient(uri, {
-    serverApi: {
-      version: ServerApiVersion.v1,
-      strict: true,
-      deprecationErrors: true,
-    },
-  });
-
   try {
+    const client = new MongoClient(uri, {
+      serverApi: {
+        version: ServerApiVersion.v1,
+        strict: true,
+        deprecationErrors: true,
+      },
+    });
+
     await client.connect();
     // Send a ping to confirm a successful connection
     await client.db('admin').command({ ping: 1 });
@@ -18,7 +18,7 @@ const connect = async (uri) => {
     );
     return client;
   } catch (err) {
-    console.log(err);
+    console.log('Invalid URI:' + err.message);
     return undefined;
   }
 };
