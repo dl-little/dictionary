@@ -25,13 +25,14 @@ const FormGroup: React.FC<IFormGroup> = (props) => {
             inputMode="numeric"
             pattern="[0-9]*"
             id={input.id}
+            name={input.name}
             {...sharedProps}
           />
         );
         break;
       case 'select':
         inputEl = (
-          <select id={input.id} {...sharedProps}>
+          <select id={input.id} {...sharedProps} name={input.name}>
             <option hidden key="blank" value="">
               Choose which type of faker object to create
             </option>
@@ -42,7 +43,7 @@ const FormGroup: React.FC<IFormGroup> = (props) => {
                 2
               ).replace(
                 /"(\w+)":\s*"([^"]+)"\s*,?|^\{|\}$/g,
-                (match, key, value) => {
+                (_match, key, value) => {
                   if (key && value) return `${key}: ${value}`; // For key-value replacements
                   return ''; // For removing curly brackets
                 }
@@ -77,7 +78,14 @@ const FormGroup: React.FC<IFormGroup> = (props) => {
         );
         break;
       default:
-        inputEl = <input type={input.type} id={input.id} {...sharedProps} />;
+        inputEl = (
+          <input
+            type={input.type}
+            id={input.id}
+            name={input.name}
+            {...sharedProps}
+          />
+        );
     }
 
     return inputEl;

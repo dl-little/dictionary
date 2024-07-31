@@ -8,6 +8,7 @@ type InputGroup = {
   label: string;
   type: string;
   id: string;
+  name: string;
   options?: SelectOption[];
   default?: string;
 };
