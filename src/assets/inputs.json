@@ -3,27 +3,32 @@
     {
       "id": "fm_uri",
       "label": "Your Atlas URI",
+      "name": "URI",
       "type": "text",
       "default": "VITE_ATLAS_URI"
     },
     {
       "id": "fm_db",
       "label": "Database Name",
+      "name": "Database",
       "type": "text"
     },
     {
       "id": "fm_collection",
       "label": "Collection Name",
+      "name": "Collection",
       "type": "text"
     },
     {
       "id": "fm_doc_amount",
       "label": "How many documents? (numeric value only)",
+      "name": "Document Amount",
       "type": "number"
     },
     {
       "id": "fm_type",
       "label": "Type",
+      "name": "Type of Faker Maker Object",
       "type": "select",
       "options": [
         {

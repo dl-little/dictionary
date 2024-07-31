@@ -80,6 +80,7 @@ function App() {
         <FormGroup
           input={{
             label: 'Example document:',
+            name: 'Example Document to be Created',
             id: 'example',
             type: 'textarea',
           }}
