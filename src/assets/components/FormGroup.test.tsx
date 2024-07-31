@@ -71,7 +71,7 @@ describe('Functional - FormGroup', () => {
 
 describe('Accessibility - FormGroup', () => {
   it('does not render with any accessibility violations', async () => {
-    const { user } = setup(
+    const { container } = render(
       <FormGroup
         input={{
           id: 'number_input',
@@ -82,11 +82,7 @@ describe('Accessibility - FormGroup', () => {
       />
     );
 
-    const input = (await screen.findByRole('textbox', {
-      name: /Number Input/i,
-    })) as HTMLInputElement;
-
-    const results = await axe.run(input);
+    const results = await axe.run(container);
     expect(results.violations.length).toBe(0);
   });
 });
