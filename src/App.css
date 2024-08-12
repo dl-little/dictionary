@@ -58,10 +58,6 @@ body,
   list-style: none;
 }
 
-[role='radiogroup']:focus {
-  outline: none;
-}
-
 [role='radio'] {
   padding: 4px 8px;
   border: 0 solid transparent;
@@ -69,7 +65,6 @@ body,
   display: inline-block;
   position: relative;
   cursor: default;
-  outline: none;
   color: black;
 }
 
