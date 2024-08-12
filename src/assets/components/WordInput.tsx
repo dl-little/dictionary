@@ -12,12 +12,18 @@ const WordInput = () => {
   };
 
   return (
-    <input
-      type="text"
-      className="border-gray-400 border block"
-      onChange={handleInput}
-      required={true}
-    />
+    <>
+      <label htmlFor="word" className="sr-only">
+        Word
+      </label>
+      <input
+        type="text"
+        className="border-gray-400 border block"
+        onChange={handleInput}
+        required={true}
+        id="word"
+      />
+    </>
   );
 };
 
