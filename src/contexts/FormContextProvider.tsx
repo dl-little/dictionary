@@ -5,11 +5,11 @@ export const FormContext = createContext();
 
 export const FormContextProvider = ({ children }: { children: ReactNode }) => {
   const [activeDescendant, setActiveDescendant] = useState<
-    string | undefined
+    'synonyms' | 'definitions' | 'antonyms' | undefined
   >();
   const [word, setWord] = useState<string | undefined>();
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
-  const [resultData, setResultData] = useState<object[]>();
+  const [resultData, setResultData] = useState<IResultEntry[] | undefined>();
 
   return (
     <FormContext.Provider

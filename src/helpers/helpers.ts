@@ -1,4 +1,7 @@
-export const parseResults = (data: object[], type: string) => {
+export const parseResults = (
+  data: IResultEntry[],
+  type: 'synonyms' | 'definitions' | 'antonyms'
+) => {
   const resultsStructure = data.map((entry) => {
     return {
       title: entry.word,
