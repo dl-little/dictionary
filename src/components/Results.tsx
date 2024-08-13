@@ -13,6 +13,7 @@ const Results = () => {
     if (!resultData) {
       return;
     }
+
     const clean = parseResults(resultData, activeDescendant);
     setParsedResults(clean);
   }, [resultData]);
