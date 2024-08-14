@@ -56,3 +56,7 @@ type TParsedResults = {
   title: string;
   meanings: TMeaningsEntry[];
 };
+
+interface ICachedResults {
+  [x: string]: IResultEntry[];
+}
