@@ -9,7 +9,9 @@ export const FormContextProvider = ({ children }: { children: ReactNode }) => {
   >();
   const [word, setWord] = useState<string | undefined>();
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
+  const [resultsMessage, setResultsMessage] = useState<string | undefined>();
   const [resultData, setResultData] = useState<IResultEntry[] | undefined>();
+  const [touched, setTouched] = useState<boolean>(false);
 
   return (
     <FormContext.Provider
@@ -22,6 +24,10 @@ export const FormContextProvider = ({ children }: { children: ReactNode }) => {
         setErrorMessage,
         resultData,
         setResultData,
+        resultsMessage,
+        setResultsMessage,
+        touched,
+        setTouched,
       }}
     >
       {children}
