@@ -45,13 +45,6 @@ body {
   font-size: 1.125rem;
 }
 
-html,
-body,
-#root {
-  height: 100%;
-  width: 100%;
-}
-
 [role='radiogroup'] {
   padding: 0;
   margin: 0;
@@ -66,10 +59,6 @@ body,
   position: relative;
   cursor: default;
   color: black;
-}
-
-[role='radio'] + [role='radio'] {
-  margin-left: 1em;
 }
 
 [role='radio']::before {
