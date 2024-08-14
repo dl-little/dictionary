@@ -6,10 +6,10 @@ import RenderIf from './RenderIf';
 
 const WordInput = () => {
   /* @ts-expect-error: TODO: Provide default in definition of context */
-  const { setWord, errorMessage, setErrorMessage } = useContext(FormContext);
+  const { setWord, errorMessage, setErrorMessage, touched, setTouched } =
+    useContext(FormContext);
   const inputRef = useRef<HTMLInputElement | null>(null);
   const [invalid, setInvalid] = useState<boolean>(false);
-  const [touched, setTouched] = useState<boolean>(false);
 
   const handleInput = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement>
