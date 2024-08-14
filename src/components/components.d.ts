@@ -27,7 +27,7 @@ type TDefinitionsEntry = {
   antonyms?: unknown;
   synonyms?: unknown;
   definition: string;
-  example: string;
+  example?: string;
 };
 
 type TMeaningsEntry = {
