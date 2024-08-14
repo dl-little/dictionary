@@ -20,22 +20,20 @@ const Results = () => {
 
     if (clean.length <= 0) {
       setResultsMessage(
-        `There are no ${activeDescendant} for ${resultData[0].word}.`
+        `There are no ${activeDescendant} for ${resultData[0].word}. Try Binging it.`
       );
     } else {
       setResultsMessage('');
     }
 
     setParsedResults(clean);
-  }, [resultData]);
-
-  useEffect(() => {
-    console.log(parsedResults);
-  }, [parsedResults]);
+  }, [resultData, activeDescendant]);
 
   return (
-    <div className="flex-[300px] [&>*:not(:first-child)]:mt-4 border border-blue-600 p-2 min-h-[300px]">
-      <h2 className="text-2xl">Results</h2>
+    <div className="flex-[300px] border border-blue-600 p-2 min-h-[200px]">
+      <h2 className="text-2xl">
+        Results <span className="text-sm">{`- ${activeDescendant}`}</span>
+      </h2>
       <RenderIf isTrue={!!parsedResults}>
         <ul className="[&>*:not(:first-child)]:mt-4">
           {parsedResults?.map((result, i) => {

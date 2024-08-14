@@ -67,7 +67,7 @@ const WordInput = () => {
   }, [touched]);
 
   return (
-    <div className="relative min-h-[3em] flex flex-col justify-end items-start">
+    <div className="relative min-h-[3em] flex flex-col justify-end items-start [&>*:not(:first-child)]:mt-2">
       <label className="text-2xl relative" htmlFor="word">
         Word
         <RenderIf isTrue={invalid}>
