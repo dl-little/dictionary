@@ -2,6 +2,7 @@ import { FormEventHandler, ReactNode, useContext } from 'react';
 import { FormContext } from '../contexts/FormContextProvider';
 import RenderIf from './RenderIf';
 import IconAlert from './IconAlert';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 const Form = ({ children }: { children: ReactNode }) => {
   const {
@@ -12,12 +13,15 @@ const Form = ({ children }: { children: ReactNode }) => {
     /* @ts-expect-error: TODO: Provide default in definition of context */
     setErrorMessage,
     /* @ts-expect-error: TODO: Provide default in definition of context */
+    resultData,
+    /* @ts-expect-error: TODO: Provide default in definition of context */
     setResultData,
     /* @ts-expect-error: TODO: Provide default in definition of context */
     touched,
     /* @ts-expect-error: TODO: Provide default in definition of context */
     setTouched,
   } = useContext(FormContext);
+  const { getCachedEntry } = useLocalStorage(resultData);
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
@@ -25,6 +29,13 @@ const Form = ({ children }: { children: ReactNode }) => {
     // Don't try to submit if the form is invalid and the user has not made a change to the form.
     // eslint-disable-next-line no-extra-boolean-cast -- we know it's a string.
     if (!!errorMessage || !touched) {
+      return;
+    }
+
+    // If entry is in localStorage, don't submit form.
+    const cachedEntry = getCachedEntry(word);
+    if (cachedEntry) {
+      setResultData(cachedEntry);
       return;
     }
 
