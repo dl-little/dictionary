@@ -9,9 +9,10 @@ export const parseResults = (
         .map((m) => {
           return {
             partOfSpeech: m.partOfSpeech,
-            ...(m[type].length > 0 && {
-              [type]: m[type],
-            }),
+            ...(m[type] &&
+              m[type].length > 0 && {
+                [type]: m[type],
+              }),
           };
         })
         .filter((e) => {
