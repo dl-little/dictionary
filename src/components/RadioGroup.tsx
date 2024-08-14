@@ -1,4 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 import {
   Children,
   cloneElement,
@@ -13,8 +12,18 @@ import { FormContext } from '../contexts/FormContextProvider';
 
 const RadioGroup: React.FC<IRadioGroup> = (props) => {
   const { id, label, children } = props;
-  /* @ts-expect-error: TODO: Provide default in definition of context */
-  const { activeDescendant, setActiveDescendant } = useContext(FormContext);
+  const {
+    /* @ts-expect-error: TODO: Provide default in definition of context */
+    activeDescendant,
+    /* @ts-expect-error: TODO: Provide default in definition of context */
+    setActiveDescendant,
+    /* @ts-expect-error: TODO: Provide default in definition of context */
+    resultData,
+    /* @ts-expect-error: TODO: Provide default in definition of context */
+    touched,
+    /* @ts-expect-error: TODO: Provide default in definition of context */
+    setTouched,
+  } = useContext(FormContext);
   const groupRef = useRef<HTMLUListElement | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
   const [listItems, setListItems] = useState<ReactElement[]>(children);
@@ -82,6 +91,10 @@ const RadioGroup: React.FC<IRadioGroup> = (props) => {
 
   useEffect(() => {
     setListItems(renderChildren());
+
+    if (!!resultData && !touched) {
+      setTouched(true);
+    }
   }, [activeIndex]);
 
   const renderChildren = useCallback(() => {
@@ -102,9 +115,11 @@ const RadioGroup: React.FC<IRadioGroup> = (props) => {
 
   return (
     <>
-      <h2 id={labelId}>{label}</h2>
+      <h2 id={labelId} className="text-2xl">
+        {label}
+      </h2>
       <ul
-        className="radiogroup-activedescendant"
+        className="radiogroup-activedescendant flex gap-5 justify-start flex-wrap w-fit"
         role="radiogroup"
         aria-labelledby={labelId}
         aria-activedescendant={activeDescendant}

@@ -1,22 +1,26 @@
-import Form from './assets/components/Form';
-import RadioGroup from './assets/components/RadioGroup';
-import Radio from './assets/components/Radio';
-import WordInput from './assets/components/WordInput';
-import { FormContextProvider } from './assets/contexts/FormContextProvider';
+import Form from './components/Form';
+import Results from './components/Results';
+import RadioGroup from './components/RadioGroup';
+import Radio from './components/Radio';
+import WordInput from './components/WordInput';
+import { FormContextProvider } from './contexts/FormContextProvider';
 
 function App() {
   return (
-    <main className="p-4 h-full flex flex-col justify-center items-center [&>*:not(:first-child)]:mt-4">
+    <main className="p-4 lg:p-8 h-full flex flex-col justify-start items-start [&>*:not(:first-child)]:mt-4 gap-5">
       <h1>Dictionary</h1>
       <FormContextProvider>
-        <Form>
-          <RadioGroup id="query" label="Type of Query">
-            <Radio id="synonym" label="Synonym of:" />
-            <Radio id="definition" label="Definition of:" />
-            <Radio id="antonym" label="Antonym of:" />
-          </RadioGroup>
-          <WordInput />
-        </Form>
+        <section className="w-full flex justify-between gap-5 flex-wrap">
+          <Form>
+            <RadioGroup id="query" label="Type of Query">
+              <Radio id="synonyms" label="Synonym of:" />
+              <Radio id="definitions" label="Definition of:" />
+              <Radio id="antonyms" label="Antonym of:" />
+            </RadioGroup>
+            <WordInput />
+          </Form>
+          <Results />
+        </section>
       </FormContextProvider>
     </main>
   );

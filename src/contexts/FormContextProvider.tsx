@@ -5,9 +5,13 @@ export const FormContext = createContext();
 
 export const FormContextProvider = ({ children }: { children: ReactNode }) => {
   const [activeDescendant, setActiveDescendant] = useState<
-    string | undefined
+    'synonyms' | 'definitions' | 'antonyms' | undefined
   >();
   const [word, setWord] = useState<string | undefined>();
+  const [errorMessage, setErrorMessage] = useState<string | undefined>();
+  const [resultsMessage, setResultsMessage] = useState<string | undefined>();
+  const [resultData, setResultData] = useState<IResultEntry[] | undefined>();
+  const [touched, setTouched] = useState<boolean>(false);
 
   return (
     <FormContext.Provider
@@ -16,6 +20,14 @@ export const FormContextProvider = ({ children }: { children: ReactNode }) => {
         setActiveDescendant,
         word,
         setWord,
+        errorMessage,
+        setErrorMessage,
+        resultData,
+        setResultData,
+        resultsMessage,
+        setResultsMessage,
+        touched,
+        setTouched,
       }}
     >
       {children}
