@@ -4,16 +4,27 @@ import RenderIf from './RenderIf';
 import IconAlert from './IconAlert';
 
 const Form = ({ children }: { children: ReactNode }) => {
-  /* @ts-expect-error: TODO: Provide default in definition of context */
-  const { word, errorMessage, setErrorMessage, setResultData } =
-    useContext(FormContext);
+  const {
+    /* @ts-expect-error: TODO: Provide default in definition of context */
+    word,
+    /* @ts-expect-error: TODO: Provide default in definition of context */
+    errorMessage,
+    /* @ts-expect-error: TODO: Provide default in definition of context */
+    setErrorMessage,
+    /* @ts-expect-error: TODO: Provide default in definition of context */
+    setResultData,
+    /* @ts-expect-error: TODO: Provide default in definition of context */
+    touched,
+    /* @ts-expect-error: TODO: Provide default in definition of context */
+    setTouched,
+  } = useContext(FormContext);
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
     // Don't try to submit if the form is invalid and the user has not made a change to the form.
     // eslint-disable-next-line no-extra-boolean-cast -- we know it's a string.
-    if (!!errorMessage) {
+    if (!!errorMessage || !touched) {
       return;
     }
 
@@ -39,6 +50,9 @@ const Form = ({ children }: { children: ReactNode }) => {
 
       const answer = await response.json();
       setResultData(answer);
+
+      // Reset the form to prevent multiple submissions without changing anything.
+      setTouched(false);
     } catch (error) {
       if (error instanceof Error) {
         setErrorMessage(error.message);
