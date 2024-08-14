@@ -17,12 +17,6 @@ const RadioGroup: React.FC<IRadioGroup> = (props) => {
     activeDescendant,
     /* @ts-expect-error: TODO: Provide default in definition of context */
     setActiveDescendant,
-    /* @ts-expect-error: TODO: Provide default in definition of context */
-    resultData,
-    /* @ts-expect-error: TODO: Provide default in definition of context */
-    touched,
-    /* @ts-expect-error: TODO: Provide default in definition of context */
-    setTouched,
   } = useContext(FormContext);
   const groupRef = useRef<HTMLUListElement | null>(null);
   const [activeIndex, setActiveIndex] = useState<number>(0);
@@ -91,10 +85,6 @@ const RadioGroup: React.FC<IRadioGroup> = (props) => {
 
   useEffect(() => {
     setListItems(renderChildren());
-
-    if (!!resultData && !touched) {
-      setTouched(true);
-    }
   }, [activeIndex]);
 
   const renderChildren = useCallback(() => {
