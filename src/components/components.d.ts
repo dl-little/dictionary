@@ -31,10 +31,10 @@ type TDefinitionsEntry = {
 };
 
 type TMeaningsEntry = {
-  antonyms: string[];
-  definitions: TDefinitionsEntry[];
+  antonyms?: string[];
+  definitions?: TDefinitionsEntry[];
   partOfSpeech: string;
-  synonyms: string[];
+  synonyms?: string[];
 };
 
 type TPhoneticsEntry = {
@@ -51,3 +51,8 @@ interface IResultEntry {
   sourceUrls: string[];
   word: string;
 }
+
+type TParsedResults = {
+  title: string;
+  meanings: TMeaningsEntry[];
+};
