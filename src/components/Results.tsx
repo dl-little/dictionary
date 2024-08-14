@@ -27,7 +27,7 @@ const Results = () => {
     }
 
     setParsedResults(clean);
-  }, [resultData, activeDescendant]);
+  }, [resultData, activeDescendant, setResultsMessage]);
 
   return (
     <div className="flex-[300px] border border-blue-600 p-2 min-h-[200px]">
