@@ -12,6 +12,7 @@ I also followed accessibility recommendations from this [article about form vali
 <img src="./img/demo.gif" alt="A gif demonstrating behavior of the input validation." width="" />
 
 Additionally, every error state is communicated with text, color, and an icon:
+
 <img src="./img/icon.png" alt="An error message next to an invalid text input that says this input can't be empty." />
 
 <img src="./img/validation.png" alt="An error message that says its possible this word does not exist." />
