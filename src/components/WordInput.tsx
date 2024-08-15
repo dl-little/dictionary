@@ -68,8 +68,10 @@ const WordInput = () => {
 
   return (
     <div className="relative min-h-[3em] flex flex-col justify-end items-start [&>*:not(:first-child)]:mt-2">
-      <label className="text-2xl relative" htmlFor="word">
-        Word
+      <div className="relative">
+        <label className="text-2xl" htmlFor="word">
+          Word
+        </label>
         <RenderIf isTrue={invalid}>
           <p
             className="text-red-600 text-sm absolute w-[200px] bottom-[10%] left-[110%] flex items-center gap-1"
@@ -79,7 +81,7 @@ const WordInput = () => {
             This input can't be empty.
           </p>
         </RenderIf>
-      </label>
+      </div>
       <input
         type="text"
         className="border-gray-400 border inline"
